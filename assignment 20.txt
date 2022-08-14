@@ -1,0 +1,114 @@
+Ans=1
+int main()
+{
+    int a,b;
+    printf("Enter two Value\n");
+    scanf("%d%d",&a,&b);
+    swap(&a,&b);
+    printf("a=%d b=%d\n",a,b);
+    return 0;
+}
+swap(int *p,int *q)
+{
+    int temp;
+    temp=*p;
+    *p=*q;
+    *q=temp;
+    printf("\nInside swap a=%d b=%d\n",*p,*q);
+    printf("\na=%d b=%d\n",p,q);
+}
+Ans=4
+int main()
+{
+    int a=5,*p,**q,***r;
+    p=&a;
+    q=&p;
+    r=&q;
+    printf("\n %d %d %d %d",a,*p,**q,***r);
+    printf("\n %p %p %p %p",&a,p,q,r);
+    printf("\n %p %p %p %p",&a,&p,&q,&r);
+    return 0;
+}
+
+Ans=5
+int main()
+{
+    int a,b,c;
+    printf("Enter two number\n");
+    scanf("%d%d",&a,&b);
+    c=max(&a,&b);
+    printf("Maximum number is %d ",c);
+    return 0;
+}
+max(int *p,int *q)
+{
+    return *(p)>*(q)?*p:*q;
+}
+Ans=3
+int main()
+{
+    int a[100],size,i;
+    printf("Enter Size ");
+    scanf("%d",&size);
+    printf("\nEnter Value");
+    for(i=0;i<size;i++)
+        scanf("%d",&a[i]);
+        for(i=0;i<size;i++)
+            printf("%d ",a[i]);
+        printf("\n");
+    sort(&a,size);
+    for(i=0;i<size;i++)
+    printf("%d ",a[i]);
+    return 0;
+}
+sort(int *ptr,int size)
+{
+    int i,j,temp;
+    for(i=0;i<size;i++)
+        for(j=0;j<size-1;j++)
+            if(*(ptr+j)>ptr[j+1])
+    {
+        temp=*(ptr+j);
+        *(ptr+j)=ptr[j+1];
+        ptr[j+1]=temp;
+    }
+}
+Ans=6
+int main()
+{
+    char a[10];
+
+    printf("Enter a String ");
+    scanf("%s",a);
+
+    printf("%d ",str(&a));
+    return 0;
+}
+str(char *x)
+{
+    int i,count=0;
+    for(i=0;*(x+i)!='\0';i++)
+        count++;
+        return count++;
+}
+
+Ans=8
+int main()
+{
+    int a[100],size,su,i;
+    printf("Enter size\n");
+    scanf("%d",&size);
+    printf("Enter Elements ");
+    for(i=0;i<size;i++)
+    scanf("%d",&a[i]);
+    su=sum(&a,size);
+    printf("Sum of arrays %d ",su);
+    return 0;
+}
+sum(int *p,int size)
+{
+    int i,sum=0;
+    for(i=0;i<size;i++)
+        sum+=*(p+i);
+    return sum;
+}
